@@ -2,64 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concert Listings</title>
-    <link rel="stylesheet" href="Concerts.css">
+    <title>All Concerts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Header Component -->
-    <header class="longheader">
-        <!-- Navigation Links -->
-        <nav class="header__nav">
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="{{ url_for('concerts') }}">Concerts</a></li>
-            <li><a href="{{ url_for('my_concerts') }}">My Tickets</a></li>
-            <li><a href="{{ url_for('feedback') }}">Help</a></li>
-          </ul>
+    <header>
+        <h1>All Concerts</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('concerts') }}">Concerts</a></li>
+                {% if 'user_id' in session %}
+                    <li><a href="{{ url_for('my_concerts') }}">My Concerts</a></li>
+                {% endif %}
+            </ul>
         </nav>
-    
-        <!-- Logo Section -->
-        <div class="header__logo">
-          <img src="/frontend/src/Assets/images/logo1.png" alt="Logo">
-        </div>
-        
-        <!-- Actions (e.g., Button) -->
-        <div class="header__actions">
-          {% if session.get('user_id') %}
-            <a href="{{ url_for('logout') }}" class="header__btn">Logout</a>
-          {% else %}
-            <a href="{{ url_for('login') }}" class="header__btn">Login/Register</a>
-          {% endif %}
-        </div>
-    </header>
-      
-    <!-- Search Bar -->
-    <header class="search-bar">
-        <div class="search-bar-container">
-            <input type="date" class="input-date" placeholder="Date">
-            <input type="text" class="input-city" placeholder="City or Postal Code">
-            <input type="text" class="input-search" placeholder="Search by artist or venue">
-            <button class="browse-btn">Browse</button>
-        </div>
     </header>
 
-    <!-- Main Content: Concert Listings -->
     <main>
-        <h1 class="section-title">Concerts</h1>
-        <div class="concert-list">
+        <div class="concerts-container">
             {% for concert in concerts %}
-                <div class="concert-item">
-                    <img src="{{ concert.image_url }}" alt="{{ concert.name }}" class="concert-img">
-                    <div class="concert-details">
-                        <h2 class="artist-name">{{ concert.name }}</h2>
-                        <p class="concert-date">{{ concert.date }}</p>
-                        <p class="concert-time">{{ concert.time }}</p>
-                        <p class="concert-venue">{{ concert.location }}</p>
-                        <p class="concert-city">{{ concert.city }}, {{ concert.state }}</p>
-                    </div>
+                <div class="concert-card">
+                    <h2>{{ concert.name }}</h2>
+                    <p><strong>Date:</strong> {{ concert.date }}</p>
+                    <p><strong>Location:</strong> {{ concert.location }}</p>
+                    <p><strong>Tickets Available:</strong> {{ concert.tickets_available }}</p>
+
                     {% if session.get('role') == 'attendee' %}
-                        <a href="{{ url_for('tickets', concert_id=concert.id) }}" class="find-tickets-btn">Find Tickets</a>
+                        <a href="{{ url_for('tickets', concert_id=concert.id) }}" class="btn btn-primary">Buy Tickets</a>
                     {% else %}
                         <p>You must be logged in as an attendee to purchase tickets.</p>
                     {% endif %}
@@ -68,16 +38,6 @@
                 <p>No concerts available at this time.</p>
             {% endfor %}
         </div>
-        
-        <!-- Load More Button -->
-        <button class="load-more-btn" onclick="loadMoreConcerts()">View More Concerts</button>
     </main>
-
-    <script>
-        function loadMoreConcerts() {
-            // Implement AJAX to load more concerts from the backend
-            // using jQuery or vanilla JavaScript.
-        }
-    </script>
 </body>
 </html>
