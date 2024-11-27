@@ -11,7 +11,7 @@
   }
 
   /* Logo Styles */
-  .header__logo img {
+  .footer__logo img {
     width: 291px;
     height: 55px;
     flex-shrink: 0;

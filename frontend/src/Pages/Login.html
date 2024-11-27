@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="Login.css">
+  <style>
+    .login-input, .login-btn {
+      display: block;
+      width: 100%; /* Adjusted width to match the login button */
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo Section -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="../Assets/images/logo2.png" alt="Website Logo" class="logo" />
+    </div>
+  </header>
+
+  <div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form class="login-form" onsubmit="handleSubmit(event)">
+      <input
+        class="login-input"
+        type="email"
+        id="email"
+        placeholder="Email"
+        required
+      />
+      <input
+        class="login-input"
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+      <button class="login-btn" type="submit">Login</button>
+    </form>
+
+    <!-- Registration Link -->
+    <p class="register-link">
+      Not registered yet? <a href="/register" class="register-btn">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      console.log({ email, password });
+    }
+  </script>
+
+</body>
+</html>
