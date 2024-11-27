@@ -3,6 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database import db, User, Concert,Seat  # Import your database module
 import paypalrestsdk
 import os
+import barcode
+from barcode.writer import ImageWriter
 from dotenv import load_dotenv
 from paypalrestsdk import configure
 
