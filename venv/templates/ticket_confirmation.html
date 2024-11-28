@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .ticket {
+            background-color: #ffffff;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .ticket h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .ticket p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .ticket .highlight {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .ticket .details {
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .ticket .details p {
+            margin: 5px 0;
+        }
+        .ticket a {
+            display: block;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .ticket a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticket">
+        <h1>Ticket Confirmation</h1>
+        <p>Here is your Ticket!</p>
+
+        <div class="details">
+            <p><span class="highlight">Concert:</span> {{ concert.name }}</p>
+            <p><span class="highlight">Concert Date:</span> {{ concert.date }}</p>
+            <p><span class="highlight">Location:</span> {{ concert.location }}</p>
+            <p><span class="highlight">Ticket Type:</span> {{ seat.seat_type }}</p>
+            <p><span class="highlight">Seat Number:</span> {{ seat.seat_number }}</p>
+            <p><span class="highlight">Status:</span> {{ seat.status }}</p>
+        </div>
+
+        <a href="{{ url_for('tickets', concert_id=concert.id) }}">Return to Tickets</a>
+    </div>
+
+</body>
+</html>

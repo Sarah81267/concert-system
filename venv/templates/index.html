@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Concert Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('concerts') }}">View All Concerts</a></li>
+                {% if session.get('role') == 'organizer' %}
+                <li><a href="{{ url_for('organizer_form') }}">Submit Concert</a></li>
+                <li><a href="{{ url_for('view_submitted_concerts') }}">View Your Submitted Concerts</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+                
+                {% if session.get('user_id') %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Upcoming Concerts</h2>
+            {% if concerts %}
+            <div class="concert-grid">
+                {% for concert in concerts %}
+                <div class="concert-card">
+                    <h3>{{ concert.name }}</h3>
+                    <p><strong>Date:</strong> {{ concert.date }}</p>
+                    <p><strong>Location:</strong> {{ concert.location }}</p>
+                    <a href="{{ url_for('tickets', concert_id=concert.id) }}" class="btn">Get Tickets</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No upcoming concerts at the moment. Check back later!</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Concert Management System</p>
+    </footer>
+</body>
+</html>
