@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Alley</title>
+    <link rel="stylesheet" href="Home.css"> <!-- Assuming Home.css contains your styles -->
+</head>
+<body>
+    <!-- Header Component -->
+    <header class="longheader">
+        <!-- Navigation Links -->
+        <nav class="header__nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#concerts">Concerts</a></li>
+            <li><a href="#mytickets">My Tickets</a></li>
+            <li><a href="#help">Help</a></li>
+          </ul>
+        </nav>
+    
+        <!-- Logo Section -->
+        <div class="header__logo">
+          <img src="/frontend/src/Assets/images/logo1.png" alt="Logo">
+        </div>
+        
+        <!-- Actions (e.g., Button) -->
+        <div class="header__actions">
+          <button class="header__btn">Login/Register</button>
+        </div>
+      </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>"Where the Music Lives — Book Your Tickets Now!"</h1>
+        <div class="search-bar">
+            <input type="date" class="date-input" placeholder="Select Date">
+            <input type="text" placeholder="City or Postal Code" class="city-input">
+            <input type="text" placeholder="Search by artist or venue" class="search-input">
+        </div>
+    </section>
+
+    <!-- Featured Concerts Section -->
+    <section class="featured-concerts">
+        <h2>Featured Concerts</h2>
+        <div class="concert-grid">
+            <!-- Example concert cards -->
+            <div class="concert-card">
+                <img src="taylor-swift.jpg" alt="Taylor Swift">
+                <h3>Taylor Swift</h3>
+                <p>Toronto, ON</p>
+                <p>$300</p>
+                <button class="book-now">Book Now</button>
+            </div>
+            <div class="concert-card">
+                <img src="tyler-creator.jpg" alt="Tyler the Creator">
+                <h3>Tyler the Creator</h3>
+                <p>Los Angeles, CA</p>
+                <p>$250</p>
+                <button class="book-now">Book Now</button>
+            </div>
+            <!-- Add more concert cards as needed -->
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section class="partner">
+        <h2>Partner with us - Ticket Your Event</h2>
+        <p>
+            Bring your event to life with us! Let us handle ticketing so you can focus on the show. Partner with us to take your event to the next level!
+        </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>Can I book tickets for someone else?</h3>
+            <p>Yes, during the checkout process, you can enter the recipient’s details to transfer the tickets to them.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How will I receive my tickets?</h3>
+            <p>Tickets are delivered digitally to your registered email. You can also access them through your account on our website.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I get a physical copy of my ticket?</h3>
+            <p>We primarily offer digital tickets. However, some events may allow physical ticket delivery for an additional fee.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What should I do if I don’t receive my ticket?</h3>
+            <p>Check your spam/junk email folder. If you still can’t find it, contact our support team for assistance.</p>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <footer class="footer">
+        <div class="footer-links">
+            <div class="about-us">
+                <h4>About Us</h4>
+                <p>Who We Are</p>
+                <p>Ticketing 101</p>
+            </div>
+            <div class="helpful-links">
+                <h4>Helpful Links</h4>
+                <p>My Account</p>
+                <p>Get Help</p>
+                <p>Refunds and Exchanges</p>
+            </div>
+            <div class="partners">
+                <h4>Our Partners</h4>
+                <p>PayPal</p>
+            </div>
+        </div>
+        <p>© 2024 Ticket Alley</p>
+    </footer>
+</body>
+</html>
